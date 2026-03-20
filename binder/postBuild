@@ -32,6 +32,7 @@ R -e "BiocManager::install('ReactomePA', update = FALSE)"
 R -e "BiocManager::install('GeneBreak', update = FALSE)"
 R -e "BiocManager::install('GenomicRanges', update = FALSE)"
 R -e "BiocManager::install('EnhancedVolcano', update = FALSE)"
+R -e "BiocManager::install('DESeq2', update = FALSE)"
 
 # NOT TESTED : check that the R is correctly installed
 #R -e "IRkernel::installspec(user = FALSE)"
