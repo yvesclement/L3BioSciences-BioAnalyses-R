@@ -1,0 +1,37 @@
+#!/bin/bash
+set -euo pipefail
+echo "postBuild started successfully"
+
+# Install R package
+# if not available as conda package
+# R -e "install.packages('diagram', repos='http://cran.rstudio.com/')" # the cran.rstudio is not optimised for Ubuntu 24.04, use P3M miror below instead
+# Using faster P3M mirror pour Ubuntu 24.04
+R -e "install.packages('diagram', repos='https://packagemanager.rstudio.com/cran/__linux__/jammy/latest')"
+
+# Install R/Bioconductor package
+# if not available as conda package
+# First install Bioconductor package manager
+# https://bioconductor.org/install/
+R -e "install.packages('BiocManager', repos='https://packagemanager.rstudio.com/cran/__linux__/jammy/latest')"
+R -e "BiocManager::install()"
+
+# Then install required packages
+# Biostrings: Efficient manipulation of biological strings
+# https://bioconductor.org/packages/release/bioc/html/Biostrings.html
+R -e "BiocManager::install('Biostrings')"
+R -e "BiocManager::install('limma')"
+R -e "remotes::install_github('YuLab-SMU/ggtree')"
+R -e "BiocManager::install('ggtree', update = FALSE)"
+R -e "BiocManager::install('edgeR', update = FALSE)"
+R -e "BiocManager::install('ComplexHeatmap', update = FALSE)"
+R -e "BiocManager::install('enrichplot', update = FALSE)"
+R -e "BiocManager::install('clusterProfiler', update = FALSE)"
+R -e "BiocManager::install('org.Hs.eg.db', update = FALSE)"
+R -e "BiocManager::install('org.Mm.eg.db', update = FALSE)"
+R -e "BiocManager::install('ReactomePA', update = FALSE)"
+R -e "BiocManager::install('GeneBreak', update = FALSE)"
+R -e "BiocManager::install('GenomicRanges', update = FALSE)"
+R -e "BiocManager::install('EnhancedVolcano', update = FALSE)"
+
+# NOT TESTED : check that the R is correctly installed
+#R -e "IRkernel::installspec(user = FALSE)"

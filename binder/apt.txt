@@ -1,0 +1,27 @@
+vim
+nano
+gawk
+tree
+htop
+
+# new tools required for Ubuntu 24.04 et R compilation
+build-essential
+gfortran
+cmake
+pkg-config
+libblas-dev
+liblapack-dev
+libcairo2-dev
+libxt-dev
+libssl-dev
+libcurl4-openssl-dev
+libxml2-dev
+libfontconfig1-dev
+libharfbuzz-dev
+libfribidi-dev
+libfreetype6-dev
+libpng-dev
+libtiff5-dev
+libjpeg-dev
+libgit2-dev
+libudunits2-dev
