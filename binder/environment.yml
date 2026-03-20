@@ -52,6 +52,7 @@ dependencies:
   - r-rcolorbrewer
   - r-igraph
   - r-ggtangle
+  - r-pheatmap
   #- r-enrichplot
   
   # JupyterLab Variable inspector
